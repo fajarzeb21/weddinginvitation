@@ -1,0 +1,270 @@
+/* Main section */
+.envelope-section {
+min-height: 100vh;
+width: 100%;
+padding: 40px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: #f8f4e9;
+color: #394631;
+overflow: hidden;
+}
+
+.envelope-subtitle {
+font-size: 11px;
+letter-spacing: 4px;
+color: #8b3946;
+margin-bottom: 18px;
+}
+
+.envelope-heading {
+font-family: Georgia, serif;
+font-size: clamp(30px, 5vw, 48px);
+line-height: 1.25;
+font-weight: normal;
+margin: 0;
+}
+
+.envelope-instruction {
+font-family: Georgia, serif;
+font-style: italic;
+color: #817b69;
+margin: 18px 0 35px;
+}
+
+/* Envelope */
+.envelope {
+position: relative;
+width: min(340px, 85vw);
+height: 235px;
+margin-top: 10px;
+isolation: isolate;
+}
+
+/* Envelope back */
+.envelope-back {
+position: absolute;
+inset: 0;
+z-index: 1;
+background: #667451;
+border: 1px solid #526044;
+border-radius: 3px;
+box-shadow: 0 18px 35px rgba(48, 49, 32, 0.17);
+transition: opacity 0.7s ease;
+}
+
+/* Invitation card */
+.invitation-paper {
+position: absolute;
+z-index: 2;
+width: 86%;
+height: 205px;
+left: 7%;
+top: 10px;
+box-sizing: border-box;
+padding: 24px 8px;
+background: #fffdf6;
+border: 1px solid #d9cba7;
+color: #394631;
+transition:
+transform 1.3s ease,
+width 0.8s ease,
+height 0.8s ease,
+left 0.8s ease,
+top 0.8s ease;
+transition-delay: 0s;
+}
+
+.paper-small {
+font-size: 8px;
+letter-spacing: 1.5px;
+}
+
+.invitation-paper h2 {
+font-family: Georgia, serif;
+font-weight: normal;
+font-size: 30px;
+margin: 13px 0;
+}
+
+.invitation-paper h2 span {
+color: #963f4c;
+font-style: italic;
+}
+
+.paper-line {
+width: 55px;
+height: 1px;
+background: #b59a61;
+margin: 12px auto;
+}
+
+.invitation-paper p:not(.paper-small):not(.paper-date) {
+font-size: 8px;
+letter-spacing: 1px;
+}
+
+.invitation-paper h3 {
+font-family: Georgia, serif;
+font-size: 15px;
+letter-spacing: 3px;
+font-weight: normal;
+}
+
+.paper-date {
+color: #963f4c;
+letter-spacing: 3px;
+font-size: 12px;
+}
+
+/* Envelope front */
+.envelope-front {
+position: absolute;
+z-index: 3;
+inset: 0;
+background: #758260;
+clip-path: polygon(
+0 0,
+50% 58%,
+100% 0,
+100% 100%,
+0 100%
+);
+border-radius: 3px;
+transition: opacity 0.7s ease;
+}
+
+/* Envelope flap */
+.envelope-flap {
+position: absolute;
+z-index: 4;
+inset: 0 0 auto;
+height: 60%;
+background: #87916f;
+clip-path: polygon(0 0, 100% 0, 50% 100%);
+transform-origin: top center;
+transition:
+transform 0.6s ease,
+opacity 0.5s ease;
+}
+
+/* Burgundy wax seal */
+.wax-seal {
+position: absolute;
+z-index: 5;
+top: 47%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 62px;
+height: 62px;
+border: 3px solid #8d3543;
+border-radius: 50%;
+background: radial-gradient(
+circle at 35% 30%,
+#b75b65,
+#762634 75%
+);
+color: #f7e7c6;
+font-family: Georgia, serif;
+font-size: 13px;
+box-shadow: 0 3px 7px rgba(50, 20, 20, 0.25);
+cursor: pointer;
+transition: opacity 0.3s ease;
+}
+
+.wax-seal span {
+font-style: italic;
+}
+
+/* Open the envelope flap */
+.envelope.opened .envelope-flap {
+transform: rotateX(180deg);
+opacity: 0;
+}
+
+/* Remove the wax seal */
+.envelope.opened .wax-seal {
+opacity: 0;
+pointer-events: none;
+}
+
+/* Remove the envelope front and back */
+.envelope.opened .envelope-front,
+.envelope.opened .envelope-back {
+opacity: 0;
+pointer-events: none;
+}
+
+/* Move the invitation out and make it a full card */
+.envelope.opened .invitation-paper {
+position: fixed;
+z-index: 20;
+width: min(420px, 88vw);
+height: 340px;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 55px 20px;
+box-shadow: 0 15px 45px rgba(48, 49, 32, 0.15);
+transition:
+width 0.8s ease,
+height 0.8s ease,
+padding 0.8s ease,
+box-shadow 0.8s ease;
+}
+
+/* Hide the heading and instructions once the envelope opens */
+.envelope-section:has(.envelope.opened) .envelope-subtitle,
+.envelope-section:has(.envelope.opened) .envelope-heading,
+.envelope-section:has(.envelope.opened) .envelope-instruction,
+.envelope-section:has(.envelope.opened) .envelope-bottom {
+opacity: 0;
+transition: opacity 0.4s ease;
+pointer-events: none;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+.envelope-section {
+padding: 25px 15px;
+}
+
+.envelope-heading {
+font-size: 32px;
+}
+
+.envelope {
+width: min(320px, 85vw);
+height: 215px;
+}
+
+.invitation-paper {
+height: 190px;
+padding-top: 18px;
+}
+
+.invitation-paper h2 {
+font-size: 27px;
+}
+
+.envelope.opened .invitation-paper {
+width: 90vw;
+height: 320px;
+padding: 45px 12px;
+}
+
+.invitation-paper h3 {
+font-size: 13px;
+}
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+.envelope *,
+.envelope-section > * {
+transition-duration: 0.03ms !important;
+}
+}

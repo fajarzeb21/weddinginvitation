@@ -1,17 +1,18 @@
 function Footer() {
-  return (
-    <footer className="footer-section">
-      <div className="footer-heart">♡</div>
+return ( <footer className="wedding-footer"> <div className="footer-floral">❧</div>
 
-      <h2>Olivia <span>&</span> James</h2>
 
-      <p>WE CAN'T WAIT TO CELEBRATE WITH YOU</p>
+  <p>WITH LOVE AND JOY</p>
 
-      <div className="footer-line"></div>
+  <h2>Olivia & James</h2>
 
-      <small>MADE WITH LOVE · 24 OCTOBER 2027</small>
-    </footer>
-  );
+  <p>We can't wait to celebrate with you.</p>
+
+  <span>14 · 02 · 2027</span>
+</footer>
+
+
+);
 }
 
 export default Footer;

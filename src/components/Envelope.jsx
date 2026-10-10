@@ -1,55 +1,62 @@
-function Envelope({ isOpen, setIsOpen }) {
+import { useState } from "react";
+import "./Envelope.css";
+
+function Envelope({ onOpen }) {
+const [opened, setOpened] = useState(false);
+
 const handleOpen = () => {
-setIsOpen(!isOpen);
+if (opened) return;
+
+
+setOpened(true);
+
+setTimeout(() => {
+  onOpen();
+}, 1600);
+
+
 };
 
-return (
-<section
-className={`envelope-section ${isOpen ? "invitation-opened" : ""}`}
->
-{!isOpen && (
-<> <p className="envelope-label">A SPECIAL INVITATION</p>
+return ( <section className="envelope-section"> <p className="envelope-subtitle">YOU ARE CORDIALLY INVITED</p>
 
 
-      <div className="envelope">
-        <div className="envelope-back"></div>
-        <div className="envelope-front"></div>
-        <div className="envelope-flap"></div>
+  <h1 className="envelope-heading">
+    A Special Invitation <br /> Awaits You
+  </h1>
 
-        <button
-          className="wax-seal"
-          onClick={handleOpen}
-          aria-label="Open wedding invitation"
-        >
-          O <span>&</span> J
-        </button>
-      </div>
+  <p className="envelope-instruction">
+    A little love, a beautiful beginning
+  </p>
 
-      <p className="envelope-hint">A little surprise awaits ♡</p>
+  <div className={`envelope ${opened ? "opened" : ""}`}>
+    <div className="envelope-back"></div>
 
-      <button className="open-button" onClick={handleOpen}>
-        Open Invitation
-      </button>
-    </>
-  )}
-
-  {isOpen && (
-    <div className="opened-message">
-      <p className="envelope-label">YOU ARE CORDIALLY INVITED</p>
-
-      <h1>
-        Olivia <span>&</span> James
-      </h1>
-
-      <p className="opened-date">24 · OCTOBER · 2027</p>
-
-      <div className="opened-divider">♡</div>
-
-      <button className="open-button" onClick={handleOpen}>
-        Close Invitation
-      </button>
+    <div className="invitation-paper">
+      <p className="paper-small">TOGETHER WITH THEIR FAMILIES</p>
+      <h2>Olivia <span>&</span> James</h2>
+      <div className="paper-line"></div>
+      <p>INVITE YOU TO CELEBRATE</p>
+      <h3>THEIR WEDDING</h3>
+      <p className="paper-date">14 · 02 · 2027</p>
     </div>
-  )}
+
+    <div className="envelope-front"></div>
+
+    <div className="envelope-flap"></div>
+
+    <button
+      className="wax-seal"
+      onClick={handleOpen}
+      disabled={opened}
+      aria-label="Open wedding invitation"
+    >
+      O <span>&</span> J
+    </button>
+  </div>
+
+  <p className="envelope-bottom">
+    {opened ? "With love, always..." : "CLICK THE SEAL TO OPEN"}
+  </p>
 </section>
 
 

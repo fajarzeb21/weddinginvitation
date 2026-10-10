@@ -1,33 +1,52 @@
+import "./Invitation.css";
+import WeddingDetails from "./WeddingDetails";
+import Countdown from "./CountDown";
+import Footer from "./Footer";
+
 function Invitation() {
-return ( <section className="invitation-section"> <p className="invitation-eyebrow">TOGETHER WITH THEIR FAMILIES</p>
+return ( <div className="wedding-page"> <section className="wedding-hero"> <p className="wedding-eyebrow">TOGETHER WITH THEIR FAMILIES</p>
 
 
-  <h1 className="couple-names">
-    Olivia
-    <span>&</span>
-    James
-  </h1>
+    <div className="floral-decoration">❧ ❦ ❧</div>
 
-  <div className="invitation-divider">
-    <span>✳</span>
-  </div>
+    <h1>
+      Olivia
+      <span className="ampersand">&</span>
+      James
+    </h1>
 
-  <p className="invitation-message">
-    Joyfully invite you to celebrate
-    <br />
-    the beginning of their forever.
-  </p>
+    <p className="wedding-description">
+      Joyfully invite you to celebrate the beginning
+      <br />
+      of their beautiful forever.
+    </p>
 
-  <p className="invitation-date">SUNDAY, 24 OCTOBER 2027</p>
+    <div className="hero-divider">
+      <span>✦</span>
+    </div>
 
-  <p className="invitation-note">
-    Your presence would make our day complete.
-  </p>
-</section>
+    <p className="hero-date">SUNDAY · FEBRUARY 14 · 2027</p>
+
+    <p className="hero-time">AT FOUR O'CLOCK IN THE AFTERNOON</p>
+
+    <div className="floral-decoration bottom-floral">
+      ❧ ❦ ❧
+    </div>
+
+    <a href="#wedding-details" className="details-button">
+      EXPLORE THE DETAILS ↓
+    </a>
+  </section>
+
+  <WeddingDetails />
+
+  <Countdown />
+
+  <Footer />
+</div>
 
 
 );
 }
 
 export default Invitation;
-

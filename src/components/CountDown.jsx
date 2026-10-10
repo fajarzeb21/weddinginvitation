@@ -1,65 +1,56 @@
 import { useEffect, useState } from "react";
 
+function getTimeLeft() {
+const weddingDate = new Date("2027-02-14T16:00:00");
+const difference = weddingDate.getTime() - Date.now();
+
+if (difference <= 0) {
+return null;
+}
+
+return {
+Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+Minutes: Math.floor((difference / (1000 * 60)) % 60),
+Seconds: Math.floor((difference / 1000) % 60),
+};
+}
+
 function Countdown() {
-  const weddingDate = new Date("October 24, 2027 16:00:00").getTime();
+const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
-  const [timeLeft, setTimeLeft] = useState({});
+useEffect(() => {
+const timer = setInterval(() => {
+setTimeLeft(getTimeLeft());
+}, 1000);
 
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = weddingDate - now;
+return () => clearInterval(timer);
 
-      if (difference <= 0) {
-        setTimeLeft(null);
-        return;
-      }
 
-      setTimeLeft({
-        Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        Hours: Math.floor(
-          (difference / (1000 * 60 * 60)) % 24
-        ),
-        Minutes: Math.floor(
-          (difference / (1000 * 60)) % 60
-        ),
-        Seconds: Math.floor(
-          (difference / 1000) % 60
-        ),
-      });
-    };
+}, []);
 
-    updateCountdown();
+return ( <section className="countdown-section"> <p className="countdown-label">COUNTING DOWN TO FOREVER</p>
 
-    const timer = setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(timer);
-  }, [weddingDate]);
+  <h2>Our Big Day</h2>
 
-  return (
-    <section className="countdown-section">
-      <p className="countdown-label">COUNTING DOWN TO OUR BIG DAY</p>
-
-      <h2 className="countdown-heading">Until We Say “I Do”</h2>
-
-      {timeLeft ? (
-        <div className="countdown-container">
-          {Object.entries(timeLeft).map(([label, value]) => (
-            <div className="countdown-item" key={label}>
-              <span>{String(value).padStart(2, "0")}</span>
-              <p>{label}</p>
-            </div>
-          ))}
+  {timeLeft ? (
+    <div className="countdown-grid">
+      {Object.entries(timeLeft).map(([label, value]) => (
+        <div className="countdown-item" key={label}>
+          <span>{String(value).padStart(2, "0")}</span>
+          <p>{label}</p>
         </div>
-      ) : (
-        <p className="countdown-finished">
-          Today is the special day! ♡
-        </p>
-      )}
+      ))}
+    </div>
+  ) : (
+    <p className="countdown-finished">
+      Today is the day! Let the celebration begin.
+    </p>
+  )}
+</section>
 
-      <p className="countdown-note">Every second brings us closer.</p>
-    </section>
-  );
+);
 }
 
 export default Countdown;

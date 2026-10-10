@@ -1,0 +1,274 @@
+.wedding-page {
+background: #f8f4e9;
+color: #394631;
+font-family: Georgia, "Times New Roman", serif;
+}
+
+.wedding-hero {
+min-height: 100vh;
+padding: 75px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+overflow: hidden;
+border: 12px solid #f8f4e9;
+outline: 1px solid #c6b68c;
+outline-offset: -18px;
+}
+
+.wedding-eyebrow {
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 4px;
+color: #8b3946;
+margin-bottom: 30px;
+}
+
+.floral-decoration {
+color: #758260;
+font-size: 38px;
+letter-spacing: 7px;
+margin-bottom: 18px;
+}
+
+.wedding-hero h1 {
+font-size: clamp(54px, 9vw, 92px);
+line-height: 0.95;
+font-weight: normal;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.ampersand {
+color: #963f4c;
+font-size: 45px;
+font-style: italic;
+margin: 12px 0;
+}
+
+.wedding-description {
+font-size: 15px;
+line-height: 1.9;
+color: #777363;
+margin: 30px 0;
+}
+
+.hero-divider {
+width: 160px;
+border-top: 1px solid #c9b98e;
+position: relative;
+margin: 10px 0 28px;
+}
+
+.hero-divider span {
+position: absolute;
+left: 50%;
+top: -12px;
+transform: translateX(-50%);
+background: #f8f4e9;
+padding: 0 12px;
+color: #963f4c;
+font-size: 17px;
+}
+
+.hero-date {
+font-size: 12px;
+letter-spacing: 3px;
+color: #8b3946;
+}
+
+.hero-time {
+font-family: Arial, sans-serif;
+font-size: 9px;
+letter-spacing: 2px;
+margin-top: 8px;
+}
+
+.bottom-floral {
+margin-top: 28px;
+margin-bottom: 18px;
+}
+
+.details-button {
+display: inline-block;
+color: #f8f4e9;
+background: #596747;
+padding: 15px 24px;
+text-decoration: none;
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 2px;
+border: 1px solid #596747;
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+.details-button:hover {
+background: transparent;
+color: #596747;
+}
+
+@media (max-width: 480px) {
+.wedding-hero {
+padding: 60px 20px;
+}
+
+.wedding-eyebrow {
+letter-spacing: 2px;
+}
+
+.wedding-description {
+font-size: 13px;
+}
+
+.hero-date {
+font-size: 10px;
+letter-spacing: 1.5px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.details-button {
+transition: none;
+}
+}
+.details-section {
+padding: 90px 20px;
+text-align: center;
+background: #eeeadc;
+}
+
+.details-label {
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 4px;
+color: #963f4c;
+}
+
+.details-section > h2 {
+font-size: clamp(28px, 5vw, 42px);
+font-weight: normal;
+margin: 20px 0 45px;
+}
+
+.details-card {
+max-width: 430px;
+margin: 20px auto;
+padding: 30px 20px;
+background: #f8f4e9;
+border: 1px solid #d5c9aa;
+}
+
+.details-icon {
+color: #963f4c;
+font-size: 30px;
+}
+
+.details-card h3 {
+font-family: Arial, sans-serif;
+font-size: 11px;
+letter-spacing: 3px;
+color: #596747;
+}
+
+.details-card p {
+font-size: 14px;
+color: #777363;
+line-height: 1.6;
+}
+
+.details-note {
+margin-top: 40px;
+font-style: italic;
+font-size: 15px;
+color: #777363;
+}
+.countdown-section {
+padding: 80px 20px;
+text-align: center;
+background: #f8f4e9;
+}
+
+.countdown-label {
+color: #963f4c;
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 3px;
+}
+
+.countdown-section h2 {
+font-size: 42px;
+font-weight: normal;
+margin: 20px 0 35px;
+}
+
+.countdown-grid {
+display: flex;
+justify-content: center;
+gap: 18px;
+flex-wrap: wrap;
+}
+
+.countdown-item {
+min-width: 95px;
+padding: 20px 12px;
+border: 1px solid #c9b98e;
+}
+
+.countdown-item span {
+font-family: Georgia, serif;
+font-size: 34px;
+color: #596747;
+}
+
+.countdown-item p {
+font-family: Arial, sans-serif;
+font-size: 9px;
+letter-spacing: 2px;
+color: #963f4c;
+text-transform: uppercase;
+}
+
+.countdown-finished {
+color: #596747;
+font-style: italic;
+}
+
+.wedding-footer {
+padding: 60px 20px;
+text-align: center;
+background: #394631;
+color: #f8f4e9;
+}
+
+.footer-floral {
+color: #d3bd86;
+font-size: 40px;
+}
+
+.wedding-footer > p {
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 3px;
+line-height: 1.8;
+}
+
+.wedding-footer h2 {
+font-family: Georgia, serif;
+font-weight: normal;
+font-size: 35px;
+color: #e1cf9f;
+margin: 20px 0;
+}
+
+.wedding-footer > span {
+display: inline-block;
+margin-top: 20px;
+font-size: 11px;
+letter-spacing: 3px;
+color: #d3bd86;
+}
