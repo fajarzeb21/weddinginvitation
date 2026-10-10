@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ===== GLOBAL STYLES ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #f3eee5;
+  color: #514d43;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+section,
+footer {
+  width: 100%;
+  border: none;
+}
+
+
+/* ===== ENVELOPE SECTION ===== */
+
+.envelope-section {
+  min-height: 100vh;
+  padding: 80px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f3eee5;
+}
+
+.envelope-label {
+  margin-bottom: 35px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #687451;
+  font-weight: 600;
+}
+
+/* Envelope body */
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  max-width: 100%;
+  perspective: 1000px;
+  background: #7c8968;
+  border-radius: 3px;
+  box-shadow: 0 15px 35px rgba(65, 72, 52, 0.15);
+}
+
+/* Green back */
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #7c8968;
+  border-radius: 3px;
+}
+
+/* White invitation card */
+
+.envelope-card {
+  position: absolute;
+  width: 88%;
+  height: 92%;
+  left: 6%;
+  top: 4%;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 10px;
+  text-align: center;
+  background: #fffaf2;
+  color: #514d43;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+
+  transition:
+    transform 0.9s ease,
+    opacity 0.5s ease,
+    visibility 0.5s;
+}
+
+/* Show card after opening */
+
+.envelope.opened .envelope-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-125px);
+  transition:
+    transform 0.9s ease,
+    opacity 0.5s ease 0.15s,
+    visibility 0s;
+}
+
+/* Card text */
+
+.card-small {
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  color: #687451;
+  margin-bottom: 12px;
+}
+
+.envelope-card h1 {
+  font-size: 36px;
+  line-height: 1.1;
+  color: #4e5941;
+}
+
+.envelope-card h1 span {
+  color: #a66f68;
+  font-style: italic;
+}
+
+.card-line {
+  width: 45px;
+  height: 1px;
+  margin: 13px 0;
+  background: #b7bca4;
+}
+
+.card-message {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #625f55;
+}
+
+.card-date {
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #687451;
+}
+
+/* Green envelope front */
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  background: #7c8968;
+
+  clip-path: polygon(
+    0 0,
+    50% 55%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Top envelope flap */
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+
+  background: #919c7c;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 58%
+  );
+
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition:
+    transform 0.7s ease,
+    z-index 0s 0.35s;
+
+  backface-visibility: hidden;
+}
+
+/* Open flap */
+
+.envelope.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+  transition:
+    transform 0.7s ease,
+    z-index 0s;
+}
+
+/* Wax seal */
+
+.wax-seal {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 53%;
+
+  transform: translate(-50%, -50%);
+
+  width: 53px;
+  height: 53px;
+  border: 2px solid #e2c5a9;
+  border-radius: 50%;
+
+  background: #a66f68;
+  color: #fffaf2;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+
+  box-shadow: 0 3px 8px rgba(50, 40, 30, 0.2);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.wax-seal span {
+  font-style: italic;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.envelope.opened .wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Envelope hint */
+
+.envelope-hint {
+  margin-top: 35px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #687451;
+}
+
+/* Open and close button */
+
+.open-button {
+  margin-top: 20px;
+  padding: 12px 30px;
+
+  border: 1px solid #7c8968;
+  background: transparent;
+  color: #596448;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease;
+}
+
+.open-button:hover {
+  background: #7c8968;
+  color: #fffaf2;
+}
+
+
+/* ===== INVITATION SECTION ===== */
+
+.invitation-section {
+  padding: 110px 20px;
+  text-align: center;
+  background: #faf7f0;
+}
+
+.invitation-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #687451;
+}
+
+.couple-names {
+  margin: 30px 0;
+  font-size: clamp(55px, 10vw, 90px);
+  line-height: 1.05;
+  color: #4e5941;
+}
+
+.couple-names span {
+  display: block;
+  margin: 5px 0;
+  font-size: 40px;
+  font-style: italic;
+  color: #a66f68;
+}
+
+.invitation-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px auto;
+  color: #a66f68;
+}
+
+.invitation-divider::before,
+.invitation-divider::after {
+  content: "";
+  width: 55px;
+  height: 1px;
+  background: #b9b9a5;
+}
+
+.invitation-divider span {
+  font-size: 19px;
+}
+
+.invitation-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #625f55;
+}
+
+.invitation-date {
+  margin-top: 35px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #687451;
+  font-weight: 600;
+}
+
+.invitation-note {
+  margin-top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #a66f68;
+}
+
+
+/* ===== WEDDING DETAILS ===== */
+
+.details-section {
+  padding: 100px 25px;
+  text-align: center;
+  background: #e7e7d9;
+}
+
+.details-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #687451;
+  font-weight: 600;
+}
+
+.details-heading {
+  margin-top: 15px;
+  margin-bottom: 50px;
+  font-size: clamp(32px, 5vw, 45px);
+  color: #4e5941;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 25px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.detail-item {
+  flex: 1;
+  min-width: 200px;
+  padding: 35px 20px;
+  background: #f5f1e8;
+  border: 1px solid #d8d8c8;
+  transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+  transform: translateY(-5px);
+}
+
+.detail-icon {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #a66f68;
+}
+
+.detail-item h3 {
+  margin-bottom: 10px;
+  font-size: 27px;
+  color: #4e5941;
+}
+
+.detail-item p {
+  font-size: 13px;
+  color: #514d43;
+}
+
+.detail-item small {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #777567;
+}
+
+
+/* ===== COUNTDOWN ===== */
+
+.countdown-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: #f3eee5;
+}
+
+.countdown-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #687451;
+  font-weight: 600;
+}
+
+.countdown-heading {
+  margin: 15px 0 40px;
+  font-size: clamp(32px, 5vw, 45px);
+  color: #4e5941;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.countdown-item {
+  min-width: 100px;
+  padding: 20px 15px;
+  background: #e7e7d9;
+  border: 1px solid #d4d5c4;
+}
+
+.countdown-item span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  color: #4e5941;
+}
+
+.countdown-item p {
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #687451;
+}
+
+.countdown-note {
+  margin-top: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #a66f68;
+}
+
+.countdown-finished {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  color: #687451;
+}
+
+
+/* ===== FOOTER ===== */
+
+.footer-section {
+  padding: 55px 20px;
+  text-align: center;
+  background: #dfe1d3;
+  color: #3f4535;
+}
+
+.footer-heart {
+  margin-bottom: 12px;
+  font-size: 25px;
+  color: #a66f68;
+}
+
+.footer-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #3f4535;
+}
+
+.footer-section h2 span {
+  color: #a66f68;
+  font-style: italic;
+}
+
+.footer-section p {
+  margin-top: 15px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #514d43;
+}
+
+.footer-line {
+  width: 60px;
+  height: 1px;
+  margin: 25px auto;
+  background: #a5a58e;
+}
+
+.footer-section small {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #514d43;
+}
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 600px) {
+  .envelope-section {
+    min-height: 90vh;
+    padding: 65px 15px;
+  }
+
+  .envelope {
+    width: 290px;
+    height: 200px;
+  }
+
+  .envelope.opened .envelope-card {
+    transform: translateY(-110px);
+  }
+
+  .envelope-card h1 {
+    font-size: 31px;
+  }
+
+  .invitation-section {
+    padding: 80px 18px;
+  }
+
+  .couple-names {
+    font-size: 60px;
+  }
+
+  .invitation-message {
+    font-size: 20px;
+  }
+
+  .invitation-date {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .details-section,
+  .countdown-section {
+    padding: 75px 18px;
+  }
+
+  .details-container {
+    gap: 15px;
+  }
+
+  .detail-item {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 25px 15px;
+  }
+
+  .countdown-container {
+    gap: 10px;
+  }
+
+  .countdown-item {
+    min-width: 72px;
+    padding: 15px 10px;
+  }
+
+  .countdown-item span {
+    font-size: 32px;
+  }
+
+  .countdown-item p {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .footer-section {
+    padding: 45px 15px;
+  }
+
+  .footer-section h2 {
+    font-size: 30px;
+  }
+
+  .footer-section p {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+
+/* ===== REDUCE ANIMATIONS IF REQUESTED ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
