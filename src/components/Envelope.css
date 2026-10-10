@@ -1,19 +1,19 @@
+
 /* ========================================
    WEDDING ENVELOPE — ELEGANT BOTANICAL
 ======================================== */
 
 .envelope-section {
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   box-sizing: border-box;
-  padding: 55px 20px;
-
+  padding: 45px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
   background:
     radial-gradient(
       ellipse at top left,
@@ -26,21 +26,22 @@
       transparent 40%
     ),
     #f8f4e9;
-
   color: #394631;
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-/* Elegant double gold border */
+/* ========================================
+   DOUBLE GOLD BORDER
+======================================== */
 
 .envelope-section::before,
 .envelope-section::after {
   content: "";
   position: absolute;
   pointer-events: none;
-  z-index: 4;
+  z-index: 10;
 }
 
 .envelope-section::before {
@@ -54,28 +55,29 @@
 }
 
 /* ========================================
-   REALISTIC FLORAL DECORATIONS
+   FLOWERS — INSIDE SIDE CORNERS
 ======================================== */
 
 .envelope-floral {
   position: absolute;
-  width: clamp(180px, 27vw, 340px);
+  width: clamp(100px, 17vw, 190px);
+  max-width: 30%;
   height: auto;
   object-fit: contain;
-  opacity: 0.95;
+  opacity: 0.85;
   pointer-events: none;
   z-index: 0;
 }
 
 .envelope-floral-left {
-  top: 2%;
-  left: -45px;
+  top: 30px;
+  left: 30px;
   transform: rotate(-10deg);
 }
 
 .envelope-floral-right {
-  bottom: 1%;
-  right: -45px;
+  bottom: 30px;
+  right: 30px;
   transform: scaleX(-1) rotate(-10deg);
 }
 
@@ -86,156 +88,119 @@
 .envelope-subtitle {
   position: relative;
   z-index: 1;
-
-  margin: 0 0 18px;
-
+  margin: 0 0 14px;
   font-family: Arial, sans-serif;
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 4px;
-
+  letter-spacing: 3px;
   color: #8b3946;
 }
 
 .envelope-heading {
   position: relative;
   z-index: 1;
-
   margin: 0;
-
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(36px, 5vw, 54px);
+  font-size: clamp(32px, 4.5vw, 46px);
   font-weight: 400;
   line-height: 1.15;
-
   color: #394631;
+  overflow-wrap: anywhere;
 }
 
 .envelope-instruction {
   position: relative;
   z-index: 1;
-
-  margin: 18px 0 38px;
-
+  margin: 14px 0 25px;
   font-family: Georgia, serif;
-  font-size: 15px;
+  font-size: 14px;
   font-style: italic;
-
   color: #817b69;
 }
 
 /* ========================================
-   ENVELOPE
+   ENVELOPE BODY
 ======================================== */
 
 .envelope {
   position: relative;
   z-index: 1;
-
-  width: min(360px, 82vw);
-  height: 245px;
-  margin-top: 8px;
-
+  width: min(300px, 76vw);
+  height: 200px;
+  margin-top: 5px;
+  flex-shrink: 0;
   isolation: isolate;
   perspective: 1000px;
 }
-
-/* Envelope back */
 
 .envelope-back {
   position: absolute;
   inset: 0;
   z-index: 1;
-
-  background: linear-gradient(
-    135deg,
-    #7d8969,
-    #596747
-  );
-
+  background: linear-gradient(135deg, #7d8969, #596747);
   border: 1px solid #526044;
   border-radius: 3px;
-
-  box-shadow: 0 20px 45px rgba(48, 49, 32, 0.19);
-
+  box-shadow: 0 15px 30px rgba(48, 49, 32, 0.17);
   transition: opacity 0.7s ease;
 }
 
 /* ========================================
-   INVITATION PAPER
+   INVITATION CARD
 ======================================== */
 
 .invitation-paper {
   position: absolute;
   z-index: 2;
-
   width: 86%;
-  height: 215px;
+  height: 180px;
   left: 7%;
   top: 10px;
-
   box-sizing: border-box;
-  padding: 26px 8px;
-
+  padding: 19px 8px;
   background: #fffdf7;
   border: 1px solid #c6ad78;
   outline: 1px solid rgba(198, 173, 120, 0.45);
   outline-offset: -7px;
-
   color: #394631;
   overflow: hidden;
-
-  transition:
-    transform 1.3s ease,
-    width 0.8s ease,
-    height 0.8s ease,
-    left 0.8s ease,
-    top 0.8s ease,
-    padding 0.8s ease,
-    box-shadow 0.8s ease;
 }
-
-/* Delicate botanical ornaments */
 
 .invitation-paper::before,
 .invitation-paper::after {
   position: absolute;
-
   color: #963f4c;
   font-family: Georgia, serif;
-  font-size: 27px;
+  font-size: 23px;
   line-height: 1;
-
   pointer-events: none;
 }
 
 .invitation-paper::before {
   content: "❦";
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
 }
 
 .invitation-paper::after {
   content: "❦";
-  bottom: 12px;
-  right: 12px;
+  bottom: 10px;
+  right: 10px;
   transform: rotate(180deg);
 }
 
-/* Invitation typography */
+/* Card typography */
 
 .paper-small {
   font-family: Arial, sans-serif;
-  font-size: 8px;
-  letter-spacing: 1.5px;
+  font-size: 7px;
+  letter-spacing: 1px;
   color: #596747;
 }
 
 .invitation-paper h2 {
-  margin: 14px 0;
-
+  margin: 10px 0;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 31px;
+  font-size: 26px;
   font-weight: 400;
 }
 
@@ -245,30 +210,29 @@
 }
 
 .paper-line {
-  width: 55px;
+  width: 45px;
   height: 1px;
-  margin: 12px auto;
-
+  margin: 9px auto;
   background: #c6ad78;
 }
 
 .invitation-paper p:not(.paper-small):not(.paper-date) {
   font-family: Arial, sans-serif;
-  font-size: 8px;
-  letter-spacing: 1px;
+  font-size: 7px;
+  letter-spacing: 0.7px;
 }
 
 .invitation-paper h3 {
   font-family: Georgia, serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 .paper-date {
   color: #963f4c;
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
 /* ========================================
@@ -279,13 +243,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-
-  background: linear-gradient(
-    145deg,
-    #899273,
-    #667451
-  );
-
+  background: linear-gradient(145deg, #899273, #667451);
   clip-path: polygon(
     0 0,
     50% 58%,
@@ -293,38 +251,26 @@
     100% 100%,
     0 100%
   );
-
   border-radius: 3px;
-
   transition: opacity 0.7s ease;
 }
 
-/* Envelope flap */
+/* ========================================
+   ENVELOPE FLAP
+======================================== */
 
 .envelope-flap {
   position: absolute;
   inset: 0 0 auto;
   z-index: 4;
-
   height: 60%;
-
-  background: linear-gradient(
-    135deg,
-    #9aa184,
-    #758260
-  );
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    50% 100%
-  );
-
+  background: linear-gradient(135deg, #9aa184, #758260);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
-
   transition:
     transform 0.6s ease,
     opacity 0.5s ease;
+  backface-visibility: hidden;
 }
 
 /* ========================================
@@ -334,36 +280,27 @@
 .wax-seal {
   position: absolute;
   z-index: 5;
-
   top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  width: 68px;
-  height: 68px;
+  width: 55px;
+  height: 55px;
   padding: 0;
-
   border: 2px solid #a44b57;
   border-radius: 50%;
-
   background: radial-gradient(
     circle at 32% 25%,
     #c7757b 0%,
     #963f4c 45%,
     #762634 82%
   );
-
   color: #f7e7c6;
-
   font-family: Georgia, serif;
-  font-size: 13px;
-
+  font-size: 12px;
   box-shadow:
     0 4px 9px rgba(50, 20, 20, 0.25),
     inset 0 0 0 3px rgba(247, 231, 198, 0.15);
-
   cursor: pointer;
-
   transition:
     opacity 0.3s ease,
     box-shadow 0.3s ease;
@@ -379,26 +316,30 @@
   font-style: italic;
 }
 
-/* Visible keyboard focus */
-
 .wax-seal:focus-visible {
   outline: 2px solid #c6ad78;
-  outline-offset: 5px;
+  outline-offset: 4px;
 }
 
 /* ========================================
    OPENING ANIMATION
 ======================================== */
 
+/* Open the flap */
+
 .envelope.opened .envelope-flap {
   transform: rotateX(180deg);
   opacity: 0;
 }
 
+/* Hide the seal */
+
 .envelope.opened .wax-seal {
   opacity: 0;
   pointer-events: none;
 }
+
+/* Fade the envelope body */
 
 .envelope.opened .envelope-front,
 .envelope.opened .envelope-back {
@@ -406,29 +347,52 @@
   pointer-events: none;
 }
 
-/* Invitation expands to the center */
+/* Slide the card out, then expand it */
 
 .envelope.opened .invitation-paper {
-  position: fixed;
-  z-index: 20;
-
-  width: min(440px, 88vw);
-  height: 390px;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  padding: 75px 20px;
-
-  box-shadow:
-    0 20px 60px rgba(48, 49, 32, 0.15),
-    0 0 0 8px #f8f4e9,
-    0 0 0 9px #c6ad78;
+  z-index: 6;
+  animation: invitationSlideOut 1.3s ease forwards;
 }
 
-/* Hide the introduction when opening */
+@keyframes invitationSlideOut {
+  0% {
+    position: absolute;
+    width: 86%;
+    height: 180px;
+    left: 7%;
+    top: 10px;
+    transform: translateY(0);
+    padding: 19px 8px;
+    box-shadow: none;
+  }
+
+  40% {
+    position: absolute;
+    width: 86%;
+    height: 180px;
+    left: 7%;
+    top: 10px;
+    transform: translateY(-85px);
+    padding: 19px 8px;
+    box-shadow: none;
+  }
+
+  100% {
+    position: fixed;
+    width: min(330px, 78vw);
+    height: min(340px, 68dvh);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 16px;
+    box-shadow:
+      0 15px 40px rgba(48, 49, 32, 0.15),
+      0 0 0 6px #f8f4e9,
+      0 0 0 7px #c6ad78;
+  }
+}
+
+/* Hide the introduction after opening */
 
 .envelope-section:has(.envelope.opened) .envelope-subtitle,
 .envelope-section:has(.envelope.opened) .envelope-heading,
@@ -439,28 +403,27 @@
   pointer-events: none;
 }
 
-/* Bottom instruction */
+/* ========================================
+   BOTTOM INSTRUCTION
+======================================== */
 
 .envelope-bottom {
   position: relative;
   z-index: 1;
-
-  margin-top: 30px;
-
+  margin-top: 24px;
   font-family: Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-
+  font-size: 8px;
+  letter-spacing: 2px;
   color: #8b3946;
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   TABLETS AND PHONES
 ======================================== */
 
 @media (max-width: 600px) {
   .envelope-section {
-    padding: 40px 15px;
+    padding: 35px 15px;
   }
 
   .envelope-section::before {
@@ -472,101 +435,240 @@
   }
 
   .envelope-heading {
-    font-size: clamp(32px, 9vw, 40px);
+    font-size: clamp(29px, 7.5vw, 36px);
   }
 
   .envelope-subtitle {
-    font-size: 9px;
-    letter-spacing: 2.5px;
+    font-size: 8px;
+    letter-spacing: 2px;
   }
 
   .envelope-instruction {
-    font-size: 14px;
-    margin-bottom: 32px;
+    font-size: 12px;
+    margin: 12px 0 23px;
   }
 
   .envelope {
-    width: min(330px, 84vw);
-    height: 220px;
+    width: min(280px, 76vw);
+    height: clamp(155px, 48vw, 190px);
   }
 
   .invitation-paper {
-    height: 190px;
-    padding-top: 18px;
+    height: 165px;
+    padding-top: 15px;
   }
 
   .invitation-paper h2 {
-    font-size: 27px;
+    font-size: 23px;
   }
 
   .invitation-paper::before,
   .invitation-paper::after {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .envelope.opened .invitation-paper {
-    width: 88vw;
-    height: 340px;
-    padding: 55px 12px;
+    animation-name: invitationSlideOutMobile;
   }
 
-  .invitation-paper h3 {
-    font-size: 13px;
+  @keyframes invitationSlideOutMobile {
+    0% {
+      position: absolute;
+      width: 86%;
+      height: 165px;
+      left: 7%;
+      top: 10px;
+      transform: translateY(0);
+      padding: 15px 8px;
+      box-shadow: none;
+    }
+
+    40% {
+      position: absolute;
+      width: 86%;
+      height: 165px;
+      left: 7%;
+      top: 10px;
+      transform: translateY(-75px);
+      padding: 15px 8px;
+      box-shadow: none;
+    }
+
+    100% {
+      position: fixed;
+      width: min(300px, 78vw);
+      height: min(310px, 65dvh);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 40px 12px;
+      box-shadow:
+        0 15px 40px rgba(48, 49, 32, 0.15),
+        0 0 0 6px #f8f4e9,
+        0 0 0 7px #c6ad78;
+    }
   }
 
-  .paper-small {
-    font-size: 7px;
+  .envelope.opened .invitation-paper h2 {
+    font-size: 24px;
+    margin: 9px 0;
   }
+
+  .envelope.opened .invitation-paper h3 {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .envelope.opened .invitation-paper .paper-date {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .envelope.opened .invitation-paper .paper-line {
+    margin: 8px auto;
+  }
+
+  /* Flowers stay inside the side corners */
 
   .envelope-floral {
-    width: 185px;
-    opacity: 0.78;
+    width: 90px;
+    max-width: 25%;
+    opacity: 0.7;
   }
 
   .envelope-floral-left {
-    top: 2%;
-    left: -85px;
+    top: 28px;
+    left: 25px;
   }
 
   .envelope-floral-right {
-    bottom: 2%;
-    right: -85px;
+    bottom: 28px;
+    right: 25px;
+  }
+
+  .envelope-bottom {
+    margin-top: 22px;
+    font-size: 7px;
+    letter-spacing: 2px;
   }
 }
 
-/* Small mobile screens */
+/* ========================================
+   SMALL PHONES
+======================================== */
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
+  .envelope-section {
+    padding: 30px 12px;
+  }
+
   .envelope-heading {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .envelope-instruction {
+    font-size: 11px;
+    margin-bottom: 20px;
   }
 
   .envelope {
-    width: 80vw;
-    height: 205px;
+    width: 76vw;
+    height: 48vw;
+    min-height: 145px;
+    max-height: 175px;
   }
 
   .wax-seal {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
+    font-size: 11px;
+  }
+
+  .envelope.opened .invitation-paper {
+    animation-name: invitationSlideOutSmall;
+  }
+
+  @keyframes invitationSlideOutSmall {
+    0% {
+      position: absolute;
+      width: 86%;
+      height: 145px;
+      left: 7%;
+      top: 10px;
+      transform: translateY(0);
+      padding: 15px 8px;
+      box-shadow: none;
+    }
+
+    40% {
+      position: absolute;
+      width: 86%;
+      height: 145px;
+      left: 7%;
+      top: 10px;
+      transform: translateY(-65px);
+      padding: 15px 8px;
+      box-shadow: none;
+    }
+
+    100% {
+      position: fixed;
+      width: 76vw;
+      height: min(290px, 62dvh);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 35px 10px;
+      box-shadow:
+        0 15px 40px rgba(48, 49, 32, 0.15),
+        0 0 0 6px #f8f4e9,
+        0 0 0 7px #c6ad78;
+    }
+  }
+
+  .envelope.opened .invitation-paper h2 {
+    font-size: 21px;
+  }
+
+  .envelope.opened .invitation-paper h3 {
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 
   .envelope-floral {
-    width: 155px;
+    width: 70px;
+    max-width: 23%;
     opacity: 0.65;
   }
 
-  .invitation-paper h2 {
-    font-size: 24px;
+  .envelope-floral-left {
+    top: 25px;
+    left: 22px;
+  }
+
+  .envelope-floral-right {
+    bottom: 25px;
+    right: 22px;
+  }
+
+  .envelope-section::before {
+    inset: 10px;
+  }
+
+  .envelope-section::after {
+    inset: 15px;
   }
 }
 
-/* Accessibility */
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .envelope *,
   .envelope-section > * {
-    transition-duration: 0.03ms !important;
-    animation-duration: 0.03ms !important;
+    transition-duration: 0.07ms !important;
+    animation-duration: 0.10ms !important;
   }
 }
+
