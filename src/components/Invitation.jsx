@@ -1,7 +1,7 @@
 function Invitation() {
 return ( <section className="invitation-section"> <p className="invitation-eyebrow">TOGETHER WITH THEIR FAMILIES</p>
 
-```
+
   <h1 className="couple-names">
     Olivia
     <span>&</span>
