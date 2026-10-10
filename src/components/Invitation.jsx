@@ -2,13 +2,37 @@ import "./Invitation.css";
 import WeddingDetails from "./WeddingDetails";
 import Countdown from "./CountDown";
 import Footer from "./Footer";
+import floralCorner from "../assets/floral-corner.png";
 
 function Invitation() {
-return ( <div className="wedding-page"> <section className="wedding-hero"> <p className="wedding-eyebrow">
-TOGETHER WITH THEIR FAMILIES </p>
+return ( <div className="wedding-page"> <section className="wedding-hero">
+{/* Top-left floral image */} <img
+       src={floralCorner}
+       className="invitation-floral invitation-floral-left"
+       alt=""
+       aria-hidden="true"
+     />
 
 
-    <div className="floral-decoration">❧ ❦ ❧</div>
+    {/* Bottom-right floral image */}
+    <img
+      src={floralCorner}
+      className="invitation-floral invitation-floral-right"
+      alt=""
+      aria-hidden="true"
+    />
+
+    <p className="wedding-eyebrow">
+      TOGETHER WITH THEIR FAMILIES
+    </p>
+
+    <div className="floral-decoration" aria-hidden="true">
+      <span>✦</span>
+      <span className="divider-line"></span>
+      <span className="divider-flower">❦</span>
+      <span className="divider-line"></span>
+      <span>✦</span>
+    </div>
 
     <h1>
       Olivia
@@ -34,8 +58,15 @@ TOGETHER WITH THEIR FAMILIES </p>
       AT FOUR O'CLOCK IN THE AFTERNOON
     </p>
 
-    <div className="floral-decoration bottom-floral">
-      ❧ ❦ ❧
+    <div
+      className="floral-decoration bottom-floral"
+      aria-hidden="true"
+    >
+      <span>✦</span>
+      <span className="divider-line"></span>
+      <span className="divider-flower">❦</span>
+      <span className="divider-line"></span>
+      <span>✦</span>
     </div>
 
     <a href="#wedding-details" className="details-button">
