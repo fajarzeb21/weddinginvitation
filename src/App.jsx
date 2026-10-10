@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Envelope from "./components/Envelope";
 import Invitation from "./components/Invitation";
 import WeddingDetails from "./components/WeddingDetails";
@@ -6,13 +7,20 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <Envelope />
-      <Invitation />
-      <WeddingDetails />
-      <Countdown />
-      <Footer />
+      <Envelope isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      {isOpen && (
+        <main className="wedding-content">
+          <Invitation />
+          <WeddingDetails />
+          <Countdown />
+          <Footer />
+        </main>
+      )}
     </>
   );
 }
