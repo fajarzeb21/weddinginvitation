@@ -4,7 +4,8 @@ import Countdown from "./CountDown";
 import Footer from "./Footer";
 
 function Invitation() {
-return ( <div className="wedding-page"> <section className="wedding-hero"> <p className="wedding-eyebrow">TOGETHER WITH THEIR FAMILIES</p>
+return ( <div className="wedding-page"> <section className="wedding-hero"> <p className="wedding-eyebrow">
+TOGETHER WITH THEIR FAMILIES </p>
 
 
     <div className="floral-decoration">❧ ❦ ❧</div>
@@ -25,9 +26,13 @@ return ( <div className="wedding-page"> <section className="wedding-hero"> <p cl
       <span>✦</span>
     </div>
 
-    <p className="hero-date">SUNDAY · FEBRUARY 14 · 2027</p>
+    <p className="hero-date">
+      SUNDAY · FEBRUARY 14 · 2027
+    </p>
 
-    <p className="hero-time">AT FOUR O'CLOCK IN THE AFTERNOON</p>
+    <p className="hero-time">
+      AT FOUR O'CLOCK IN THE AFTERNOON
+    </p>
 
     <div className="floral-decoration bottom-floral">
       ❧ ❦ ❧
@@ -39,9 +44,7 @@ return ( <div className="wedding-page"> <section className="wedding-hero"> <p cl
   </section>
 
   <WeddingDetails />
-
   <Countdown />
-
   <Footer />
 </div>
 

@@ -1,47 +1,79 @@
+/* Main wedding page */
 .wedding-page {
 background: #f8f4e9;
 color: #394631;
 font-family: Georgia, "Times New Roman", serif;
+overflow: hidden;
 }
 
+/* Main invitation section */
 .wedding-hero {
 min-height: 100vh;
-padding: 75px 20px;
+padding: 90px 25px;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 text-align: center;
 position: relative;
+isolation: isolate;
 overflow: hidden;
 border: 12px solid #f8f4e9;
-outline: 1px solid #c6b68c;
-outline-offset: -18px;
+outline: 1px solid #c6ad78;
+outline-offset: -19px;
+}
+
+/* Soft decorative background */
+.wedding-hero::before,
+.wedding-hero::after {
+content: "❧";
+position: absolute;
+z-index: -1;
+color: #758260;
+opacity: 0.12;
+font-size: clamp(150px, 25vw, 280px);
+pointer-events: none;
+}
+
+.wedding-hero::before {
+top: -55px;
+left: -45px;
+transform: rotate(-35deg);
+}
+
+.wedding-hero::after {
+content: "❦";
+right: -45px;
+bottom: -65px;
+transform: rotate(35deg);
+color: #963f4c;
 }
 
 .wedding-eyebrow {
 font-family: Arial, sans-serif;
 font-size: 10px;
 letter-spacing: 4px;
+line-height: 1.8;
 color: #8b3946;
-margin-bottom: 30px;
+margin: 0 0 28px;
 }
 
 .floral-decoration {
 color: #758260;
-font-size: 38px;
+font-size: 36px;
 letter-spacing: 7px;
-margin-bottom: 18px;
+margin-bottom: 22px;
 }
 
 .wedding-hero h1 {
 font-size: clamp(54px, 9vw, 92px);
-line-height: 0.95;
+line-height: 0.98;
 font-weight: normal;
 margin: 0;
 display: flex;
 flex-direction: column;
 align-items: center;
+color: #394631;
 }
 
 .ampersand {
@@ -55,14 +87,14 @@ margin: 12px 0;
 font-size: 15px;
 line-height: 1.9;
 color: #777363;
-margin: 30px 0;
+margin: 28px 0;
 }
 
 .hero-divider {
 width: 160px;
-border-top: 1px solid #c9b98e;
+border-top: 1px solid #c6ad78;
 position: relative;
-margin: 10px 0 28px;
+margin: 12px 0 28px;
 }
 
 .hero-divider span {
@@ -79,14 +111,18 @@ font-size: 17px;
 .hero-date {
 font-size: 12px;
 letter-spacing: 3px;
+line-height: 1.8;
 color: #8b3946;
+margin: 0;
 }
 
 .hero-time {
 font-family: Arial, sans-serif;
 font-size: 9px;
 letter-spacing: 2px;
-margin-top: 8px;
+line-height: 1.8;
+margin-top: 10px;
+color: #777363;
 }
 
 .bottom-floral {
@@ -94,48 +130,28 @@ margin-top: 28px;
 margin-bottom: 18px;
 }
 
+/* Invitation button */
 .details-button {
 display: inline-block;
 color: #f8f4e9;
 background: #596747;
-padding: 15px 24px;
+padding: 15px 25px;
 text-decoration: none;
 font-family: Arial, sans-serif;
 font-size: 10px;
 letter-spacing: 2px;
 border: 1px solid #596747;
-transition: background 0.3s ease, color 0.3s ease;
+transition: background 0.3s ease, color 0.3s ease,
+transform 0.3s ease;
 }
 
 .details-button:hover {
 background: transparent;
 color: #596747;
+transform: translateY(-2px);
 }
 
-@media (max-width: 480px) {
-.wedding-hero {
-padding: 60px 20px;
-}
-
-.wedding-eyebrow {
-letter-spacing: 2px;
-}
-
-.wedding-description {
-font-size: 13px;
-}
-
-.hero-date {
-font-size: 10px;
-letter-spacing: 1.5px;
-}
-}
-
-@media (prefers-reduced-motion: reduce) {
-.details-button {
-transition: none;
-}
-}
+/* Wedding details */
 .details-section {
 padding: 90px 20px;
 text-align: center;
@@ -161,6 +177,12 @@ margin: 20px auto;
 padding: 30px 20px;
 background: #f8f4e9;
 border: 1px solid #d5c9aa;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 24px rgba(57, 70, 49, 0.08);
 }
 
 .details-icon {
@@ -178,7 +200,7 @@ color: #596747;
 .details-card p {
 font-size: 14px;
 color: #777363;
-line-height: 1.6;
+line-height: 1.8;
 }
 
 .details-note {
@@ -187,6 +209,8 @@ font-style: italic;
 font-size: 15px;
 color: #777363;
 }
+
+/* Countdown */
 .countdown-section {
 padding: 80px 20px;
 text-align: center;
@@ -201,7 +225,7 @@ letter-spacing: 3px;
 }
 
 .countdown-section h2 {
-font-size: 42px;
+font-size: clamp(30px, 5vw, 42px);
 font-weight: normal;
 margin: 20px 0 35px;
 }
@@ -217,6 +241,7 @@ flex-wrap: wrap;
 min-width: 95px;
 padding: 20px 12px;
 border: 1px solid #c9b98e;
+background: rgba(255, 255, 255, 0.2);
 }
 
 .countdown-item span {
@@ -238,6 +263,7 @@ color: #596747;
 font-style: italic;
 }
 
+/* Footer */
 .wedding-footer {
 padding: 60px 20px;
 text-align: center;
@@ -271,4 +297,183 @@ margin-top: 20px;
 font-size: 11px;
 letter-spacing: 3px;
 color: #d3bd86;
+}
+
+/* Tablet and mobile screens */
+@media (max-width: 600px) {
+.wedding-hero {
+min-height: 90vh;
+padding: 75px 22px;
+border-width: 9px;
+outline-offset: -15px;
+}
+
+.wedding-eyebrow {
+font-size: 9px;
+letter-spacing: 2.5px;
+}
+
+.floral-decoration {
+font-size: 29px;
+letter-spacing: 4px;
+}
+
+.wedding-hero h1 {
+font-size: clamp(48px, 12vw, 68px);
+}
+
+.ampersand {
+font-size: 37px;
+margin: 10px 0;
+}
+
+.wedding-description {
+font-size: 13px;
+margin: 24px 0;
+}
+
+.hero-date {
+font-size: 10px;
+letter-spacing: 1.5px;
+}
+
+.hero-time {
+font-size: 8px;
+letter-spacing: 1.3px;
+}
+
+.details-button {
+padding: 14px 18px;
+font-size: 9px;
+letter-spacing: 1.5px;
+}
+
+.details-section,
+.countdown-section {
+padding: 65px 18px;
+}
+
+.countdown-grid {
+gap: 10px;
+}
+
+.countdown-item {
+min-width: 72px;
+padding: 16px 10px;
+}
+
+.countdown-item span {
+font-size: 27px;
+}
+
+.wedding-footer h2 {
+font-size: 30px;
+}
+}
+
+@media (max-width: 360px) {
+.wedding-hero {
+padding: 65px 18px;
+}
+
+.wedding-eyebrow {
+letter-spacing: 1.5px;
+}
+
+.wedding-description br {
+display: none;
+}
+
+.hero-date {
+font-size: 9px;
+letter-spacing: 1px;
+}
+
+.countdown-item {
+min-width: 65px;
+padding: 14px 7px;
+}
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+.details-button,
+.details-card {
+transition: none;
+}
+
+.details-button:hover,
+.details-card:hover {
+transform: none;
+}
+}
+/* Watercolor floral corners */
+.wedding-hero {
+isolation: isolate;
+}
+
+.invitation-floral {
+position: absolute;
+width: clamp(150px, 24vw, 300px);
+height: auto;
+opacity: 0.95;
+z-index: -1;
+pointer-events: none;
+}
+
+.invitation-floral-left {
+top: 0;
+left: 0;
+}
+
+.invitation-floral-right {
+right: 0;
+bottom: 0;
+transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+.invitation-floral {
+width: clamp(110px, 35vw, 175px);
+opacity: 0.8;
+}
+}
+/* Floral image visibility fix */
+
+.wedding-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation-floral {
+  position: absolute;
+  display: block;
+  width: 260px;
+  height: auto;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.invitation-floral-left {
+  top: 10px;
+  left: 10px;
+}
+
+.invitation-floral-right {
+  right: 10px;
+  bottom: 10px;
+  transform: rotate(180deg);
+}
+
+/* Keep invitation text above the flowers */
+.wedding-hero > :not(.invitation-floral) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .invitation-floral {
+    width: 125px;
+  }
 }

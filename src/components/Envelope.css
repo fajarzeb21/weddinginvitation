@@ -1,270 +1,572 @@
-/* Main section */
+/* ========================================
+   WEDDING ENVELOPE — ELEGANT BOTANICAL
+======================================== */
+
 .envelope-section {
-min-height: 100vh;
-width: 100%;
-padding: 40px 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-background: #f8f4e9;
-color: #394631;
-overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 55px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(198, 173, 120, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(102, 116, 81, 0.13),
+      transparent 40%
+    ),
+    #f8f4e9;
+
+  color: #394631;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
+/* Elegant double gold border */
+
+.envelope-section::before,
+.envelope-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.envelope-section::before {
+  inset: 18px;
+  border: 1px solid rgba(198, 173, 120, 0.7);
+}
+
+.envelope-section::after {
+  inset: 24px;
+  border: 1px solid rgba(198, 173, 120, 0.3);
+}
+
+/* ========================================
+   REALISTIC FLORAL DECORATIONS
+======================================== */
+
+.envelope-floral {
+  position: absolute;
+  width: clamp(180px, 27vw, 340px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.envelope-floral-left {
+  top: 2%;
+  left: -45px;
+  transform: rotate(-10deg);
+}
+
+.envelope-floral-right {
+  bottom: 1%;
+  right: -45px;
+  transform: scaleX(-1) rotate(-10deg);
+}
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
 .envelope-subtitle {
-font-size: 11px;
-letter-spacing: 4px;
-color: #8b3946;
-margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 18px;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 4px;
+
+  color: #8b3946;
 }
 
 .envelope-heading {
-font-family: Georgia, serif;
-font-size: clamp(30px, 5vw, 48px);
-line-height: 1.25;
-font-weight: normal;
-margin: 0;
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+
+  color: #394631;
 }
 
 .envelope-instruction {
-font-family: Georgia, serif;
-font-style: italic;
-color: #817b69;
-margin: 18px 0 35px;
+  position: relative;
+  z-index: 1;
+
+  margin: 18px 0 38px;
+
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+
+  color: #817b69;
 }
 
-/* Envelope */
+/* ========================================
+   ENVELOPE
+======================================== */
+
 .envelope {
-position: relative;
-width: min(340px, 85vw);
-height: 235px;
-margin-top: 10px;
-isolation: isolate;
+  position: relative;
+  z-index: 1;
+
+  width: min(360px, 82vw);
+  height: 245px;
+  margin-top: 8px;
+
+  isolation: isolate;
+  perspective: 1000px;
 }
 
 /* Envelope back */
+
 .envelope-back {
-position: absolute;
-inset: 0;
-z-index: 1;
-background: #667451;
-border: 1px solid #526044;
-border-radius: 3px;
-box-shadow: 0 18px 35px rgba(48, 49, 32, 0.17);
-transition: opacity 0.7s ease;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    135deg,
+    #7d8969,
+    #596747
+  );
+
+  border: 1px solid #526044;
+  border-radius: 3px;
+
+  box-shadow: 0 20px 45px rgba(48, 49, 32, 0.19);
+
+  transition: opacity 0.7s ease;
 }
 
-/* Invitation card */
+/* ========================================
+   INVITATION PAPER
+======================================== */
+
 .invitation-paper {
-position: absolute;
-z-index: 2;
-width: 86%;
-height: 205px;
-left: 7%;
-top: 10px;
-box-sizing: border-box;
-padding: 24px 8px;
-background: #fffdf6;
-border: 1px solid #d9cba7;
-color: #394631;
-transition:
-transform 1.3s ease,
-width 0.8s ease,
-height 0.8s ease,
-left 0.8s ease,
-top 0.8s ease;
-transition-delay: 0s;
+  position: absolute;
+  z-index: 2;
+
+  width: 86%;
+  height: 215px;
+  left: 7%;
+  top: 10px;
+
+  box-sizing: border-box;
+  padding: 26px 8px;
+
+  background: #fffdf7;
+  border: 1px solid #c6ad78;
+  outline: 1px solid rgba(198, 173, 120, 0.45);
+  outline-offset: -7px;
+
+  color: #394631;
+  overflow: hidden;
+
+  transition:
+    transform 1.3s ease,
+    width 0.8s ease,
+    height 0.8s ease,
+    left 0.8s ease,
+    top 0.8s ease,
+    padding 0.8s ease,
+    box-shadow 0.8s ease;
 }
+
+/* Delicate botanical ornaments */
+
+.invitation-paper::before,
+.invitation-paper::after {
+  position: absolute;
+
+  color: #963f4c;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.invitation-paper::before {
+  content: "❦";
+  top: 12px;
+  left: 12px;
+}
+
+.invitation-paper::after {
+  content: "❦";
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(180deg);
+}
+
+/* Invitation typography */
 
 .paper-small {
-font-size: 8px;
-letter-spacing: 1.5px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #596747;
 }
 
 .invitation-paper h2 {
-font-family: Georgia, serif;
-font-weight: normal;
-font-size: 30px;
-margin: 13px 0;
+  margin: 14px 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 31px;
+  font-weight: 400;
 }
 
 .invitation-paper h2 span {
-color: #963f4c;
-font-style: italic;
+  color: #963f4c;
+  font-style: italic;
 }
 
 .paper-line {
-width: 55px;
-height: 1px;
-background: #b59a61;
-margin: 12px auto;
+  width: 55px;
+  height: 1px;
+  margin: 12px auto;
+
+  background: #c6ad78;
 }
 
 .invitation-paper p:not(.paper-small):not(.paper-date) {
-font-size: 8px;
-letter-spacing: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 1px;
 }
 
 .invitation-paper h3 {
-font-family: Georgia, serif;
-font-size: 15px;
-letter-spacing: 3px;
-font-weight: normal;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 .paper-date {
-color: #963f4c;
-letter-spacing: 3px;
-font-size: 12px;
+  color: #963f4c;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
-/* Envelope front */
+/* ========================================
+   ENVELOPE FRONT
+======================================== */
+
 .envelope-front {
-position: absolute;
-z-index: 3;
-inset: 0;
-background: #758260;
-clip-path: polygon(
-0 0,
-50% 58%,
-100% 0,
-100% 100%,
-0 100%
-);
-border-radius: 3px;
-transition: opacity 0.7s ease;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  background: linear-gradient(
+    145deg,
+    #899273,
+    #667451
+  );
+
+  clip-path: polygon(
+    0 0,
+    50% 58%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  border-radius: 3px;
+
+  transition: opacity 0.7s ease;
 }
 
 /* Envelope flap */
+
 .envelope-flap {
-position: absolute;
-z-index: 4;
-inset: 0 0 auto;
-height: 60%;
-background: #87916f;
-clip-path: polygon(0 0, 100% 0, 50% 100%);
-transform-origin: top center;
-transition:
-transform 0.6s ease,
-opacity 0.5s ease;
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 4;
+
+  height: 60%;
+
+  background: linear-gradient(
+    135deg,
+    #9aa184,
+    #758260
+  );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  transform-origin: top center;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.5s ease;
 }
 
-/* Burgundy wax seal */
+/* ========================================
+   BURGUNDY WAX SEAL
+======================================== */
+
 .wax-seal {
-position: absolute;
-z-index: 5;
-top: 47%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 62px;
-height: 62px;
-border: 3px solid #8d3543;
-border-radius: 50%;
-background: radial-gradient(
-circle at 35% 30%,
-#b75b65,
-#762634 75%
-);
-color: #f7e7c6;
-font-family: Georgia, serif;
-font-size: 13px;
-box-shadow: 0 3px 7px rgba(50, 20, 20, 0.25);
-cursor: pointer;
-transition: opacity 0.3s ease;
+  position: absolute;
+  z-index: 5;
+
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 68px;
+  height: 68px;
+  padding: 0;
+
+  border: 2px solid #a44b57;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 32% 25%,
+    #c7757b 0%,
+    #963f4c 45%,
+    #762634 82%
+  );
+
+  color: #f7e7c6;
+
+  font-family: Georgia, serif;
+  font-size: 13px;
+
+  box-shadow:
+    0 4px 9px rgba(50, 20, 20, 0.25),
+    inset 0 0 0 3px rgba(247, 231, 198, 0.15);
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.wax-seal:hover:not(:disabled) {
+  box-shadow:
+    0 6px 14px rgba(50, 20, 20, 0.3),
+    inset 0 0 0 3px rgba(247, 231, 198, 0.22);
 }
 
 .wax-seal span {
-font-style: italic;
+  font-style: italic;
 }
 
-/* Open the envelope flap */
+/* Visible keyboard focus */
+
+.wax-seal:focus-visible {
+  outline: 2px solid #c6ad78;
+  outline-offset: 5px;
+}
+
+/* ========================================
+   OPENING ANIMATION
+======================================== */
+
 .envelope.opened .envelope-flap {
-transform: rotateX(180deg);
-opacity: 0;
+  transform: rotateX(180deg);
+  opacity: 0;
 }
 
-/* Remove the wax seal */
 .envelope.opened .wax-seal {
-opacity: 0;
-pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Remove the envelope front and back */
 .envelope.opened .envelope-front,
 .envelope.opened .envelope-back {
-opacity: 0;
-pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Move the invitation out and make it a full card */
+/* Invitation expands to the center */
+
 .envelope.opened .invitation-paper {
-position: fixed;
-z-index: 20;
-width: min(420px, 88vw);
-height: 340px;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-padding: 55px 20px;
-box-shadow: 0 15px 45px rgba(48, 49, 32, 0.15);
-transition:
-width 0.8s ease,
-height 0.8s ease,
-padding 0.8s ease,
-box-shadow 0.8s ease;
+  position: fixed;
+  z-index: 20;
+
+  width: min(440px, 88vw);
+  height: 390px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  padding: 75px 20px;
+
+  box-shadow:
+    0 20px 60px rgba(48, 49, 32, 0.15),
+    0 0 0 8px #f8f4e9,
+    0 0 0 9px #c6ad78;
 }
 
-/* Hide the heading and instructions once the envelope opens */
+/* Hide the introduction when opening */
+
 .envelope-section:has(.envelope.opened) .envelope-subtitle,
 .envelope-section:has(.envelope.opened) .envelope-heading,
 .envelope-section:has(.envelope.opened) .envelope-instruction,
 .envelope-section:has(.envelope.opened) .envelope-bottom {
-opacity: 0;
-transition: opacity 0.4s ease;
-pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
-/* Mobile layout */
-@media (max-width: 480px) {
-.envelope-section {
-padding: 25px 15px;
+/* Bottom instruction */
+
+.envelope-bottom {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 30px;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  color: #8b3946;
 }
 
-.envelope-heading {
-font-size: 32px;
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 600px) {
+  .envelope-section {
+    padding: 40px 15px;
+  }
+
+  .envelope-section::before {
+    inset: 12px;
+  }
+
+  .envelope-section::after {
+    inset: 18px;
+  }
+
+  .envelope-heading {
+    font-size: clamp(32px, 9vw, 40px);
+  }
+
+  .envelope-subtitle {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  .envelope-instruction {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .envelope {
+    width: min(330px, 84vw);
+    height: 220px;
+  }
+
+  .invitation-paper {
+    height: 190px;
+    padding-top: 18px;
+  }
+
+  .invitation-paper h2 {
+    font-size: 27px;
+  }
+
+  .invitation-paper::before,
+  .invitation-paper::after {
+    font-size: 21px;
+  }
+
+  .envelope.opened .invitation-paper {
+    width: 88vw;
+    height: 340px;
+    padding: 55px 12px;
+  }
+
+  .invitation-paper h3 {
+    font-size: 13px;
+  }
+
+  .paper-small {
+    font-size: 7px;
+  }
+
+  .envelope-floral {
+    width: 185px;
+    opacity: 0.78;
+  }
+
+  .envelope-floral-left {
+    top: 2%;
+    left: -85px;
+  }
+
+  .envelope-floral-right {
+    bottom: 2%;
+    right: -85px;
+  }
 }
 
-.envelope {
-width: min(320px, 85vw);
-height: 215px;
-}
+/* Small mobile screens */
 
-.invitation-paper {
-height: 190px;
-padding-top: 18px;
-}
+@media (max-width: 360px) {
+  .envelope-heading {
+    font-size: 30px;
+  }
 
-.invitation-paper h2 {
-font-size: 27px;
-}
+  .envelope {
+    width: 80vw;
+    height: 205px;
+  }
 
-.envelope.opened .invitation-paper {
-width: 90vw;
-height: 320px;
-padding: 45px 12px;
-}
+  .wax-seal {
+    width: 60px;
+    height: 60px;
+  }
 
-.invitation-paper h3 {
-font-size: 13px;
-}
+  .envelope-floral {
+    width: 155px;
+    opacity: 0.65;
+  }
+
+  .invitation-paper h2 {
+    font-size: 24px;
+  }
 }
 
 /* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
-.envelope *,
-.envelope-section > * {
-transition-duration: 0.03ms !important;
-}
+  .envelope *,
+  .envelope-section > * {
+    transition-duration: 0.03ms !important;
+    animation-duration: 0.03ms !important;
+  }
 }
